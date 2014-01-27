@@ -2,43 +2,48 @@
  * RequireJS module for Trigger widget
  */
 define(['jquery'], function() {
-	var el;
+	var Trigger = function(selector, options, onCallback, offCallback) {
 
-	return {
-		options: {
+		this.options = {
 			onValue: 'on',
-			offValue: 'off',
-			onTitle: 'ON',
-			offTitle: 'OFF'
-		},
+				offValue: 'off',
+				onTitle: 'ON',
+				offTitle: 'OFF'
+		};
 
-		isOn: false,
-		onCallback: null,
-		offCallback: null,
+		this.isOn = false;
+		this.onCallback = null;
+		this.offCallback = null;
 
-		init: function(selector, options, onCallback, offCallback) {
-			var trigger = this;
-			el = $(selector);
+		this.el = $(selector).find('.trigger');
+		this.box = $(selector);
 
-			this.onCallback = onCallback || null;
-			this.offCallback = offCallback || null;
+		this.onCallback = onCallback || null;
+		this.offCallback = offCallback || null;
 
-			for (var o in options) {
-				if (this.options[o]) {
-					this.options[o] = options[o];
-				}
+		for (var o in options) {
+			if (this.options[o]) {
+				this.options[o] = options[o];
 			}
+		}
+	};
 
-			if(options.isOn) this.setState(true);
+	Trigger.prototype = {
+		init: function(isOn) {
+			var trigger = this;
+			isOn = isOn || false;
+
+			if(isOn) this.setState(true);
 			else this.setState(false)
 
-			el.click(function(e) {
+			this.box.click(function() {
 				trigger.toggle();
 			});
 		},
 
 		setState: function (isOn) {
 			isOn = isOn || false;
+			var el = this.el;
 
 			if(isOn) {
 				this.isOn = true;
@@ -67,6 +72,7 @@ define(['jquery'], function() {
 		},
 
 		on: function () {
+			var el = this.el;
 			this.setState(true);
 
 			if($.isFunction(this.onCallback))
@@ -74,6 +80,7 @@ define(['jquery'], function() {
 		},
 
 		off: function () {
+			var el = this.el;
 			this.setState(false);
 
 			if($.isFunction(this.offCallback))
@@ -85,4 +92,6 @@ define(['jquery'], function() {
 			else this.on();
 		}
 	}
+
+	return Trigger;
 });
