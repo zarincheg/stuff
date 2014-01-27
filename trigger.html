@@ -4,3 +4,13 @@
 		<div class="offTitle"></div>
 	</div>
 </div>
+<script>
+new Trigger('.channel-toggle', {
+				onTitle: 'Disabled',
+				offTitle: 'Enabled'
+			}, function(v, e) {
+				e.css('background-color', '#468EE5');
+			}, function(v, e) {
+				e.css('background-color', '#3038A6');
+			}).init();
+</script>
