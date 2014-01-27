@@ -1,0 +1,81 @@
+.channel-toggle {
+	overflow: hidden;
+	width: 215pt;
+	margin: auto;
+}
+
+.channel-toggle i {
+	float:left;
+	font-size: 24pt;
+	color: #4A8BC2;
+	margin-top: 5pt;
+}
+
+.channel-toggle i:nth-child(1) {
+	margin-right: 15pt;
+}
+
+.channel-toggle i:nth-child(3) {
+	margin-left: 15pt;
+}
+
+.trigger-box {
+	width: 270px;
+	height: 34px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+	background-color: #CFCBC3;
+	/*box-shadow: 1px 1px 4px #888888 inset;*/
+	position: relative;
+	float:left;
+}
+
+.trigger-box .trigger {
+	width: 150px;
+	height: 34px;
+	background-color: #3038A6;
+	color: #fff;
+	font-size: 18px;
+	text-align: center;
+	cursor: pointer;
+	position: absolute;
+	padding-top: 4px;
+	letter-spacing: 1px;
+	font-weight: 600;
+	border: 1pt solid #ddd;
+	border-radius: 25px;
+	-webkit-border-radius: 25px;
+
+	transition: all 0.5s ease-in-out 0s;
+	-moz-transition: all 0.5s ease-in-out 0s;
+	-webkit-transition: all 0.5s ease-in-out 0s;
+	-o-transition: all 0.5s ease-in-out 0s;
+}
+
+.trigger-box .offTitle {
+	width: 100px;
+	color: #fff;
+	font-size: 18px;
+	text-align: center;
+	cursor: pointer;
+	padding-top: 5px;
+	letter-spacing: 1px;
+	font-weight: 600;
+
+	float: right;
+	padding-right: 15px;
+
+	transition: all 0.5s ease-in-out 0s;
+	-moz-transition: all 0.5s ease-in-out 0s;
+	-webkit-transition: all 0.5s ease-in-out 0s;
+	-o-transition: all 0.5s ease-in-out 0s;
+}
+
+.trigger-box .offTitle.on {
+	float: left;
+	padding-left: 15px;
+}
+
+.trigger-box .on {
+	left: 120px;
+}
